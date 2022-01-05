@@ -52,18 +52,14 @@ class DBConnect extends mysqli {
 	
 	public $afRows 	= 0;
 	protected $Rows = 0;
-	
-	private $payType 	= PAYTYPE;
-	private $action 	= "bookcheck.php";	
-	private $actionfin  = "bookconf.php";	// not using at this time.
-	
+		
 	// reg-ex for checking dates and times:
 	public $dtp 	= '/^(\d{2})\/(\d{2})\/(\d{4})$/';
 	public $hrp 	= '/^(\d{2})\:(\d{2})	$/';
 	public $onoff	= array(1=>"Si",0=>"No");
 
 
-   public $formapago	= array("Asignar"=>"Sin asignar", "Xfer"=>"Transferencia", "Cash"=>"Efectivo", "Card"=>"Credit Card", "PayPal"=>"PayPal");
+   public $formapago	= array("Asignar"=>"Sin asignar", "Xfer"=>"Transferencia", "Cash"=>"Efectivo", "Card"=>"Credit Card", "PayPal"=>"PayPal", "Bizum"=>"Bizum");
 	
 	public $provincias = array("A CORUÑA", "ALAVA", "ALBACETE", "ALICANTE", "ALMERIA", "ASTURIAS", "AVILA", "BADAJOZ", "BARCELONA", "BURGOS", "CACERES", "CADIZ", "CANTABRIA", "CASTELLON", "CEUTA", "CIUDAD REAL", "CORDOBA", "CUENCA", "GIRONA", "GRANADA", "GUADALAJARA", "GUIPUZCOA", "HUELVA", "HUESCA", "ILLES BALEARS", "JAEN", "LA RIOJA", "LAS PALMAS", "LEON", "LLEIDA", "LUGO", "MADRID", "MALAGA", "MELILLA", "MURCIA", "NAVARRA", "OURENSE", "PALENCIA", "PONTEVEDRA", "SALAMANCA", "SANTA CRUZ DE TENERIFE", "SEGOVIA", "SEVILLA", "SORIA", "TARRAGONA", "TERUEL", "TOLEDO", "VALENCIA", "VALLADOLID", "VIZCAYA", "ZAMORA", "ZARAGOZA");
 	
