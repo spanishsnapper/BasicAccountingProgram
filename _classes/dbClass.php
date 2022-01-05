@@ -228,12 +228,9 @@ class FormWrite extends DBConnect {
 				$return = "<input name='{$field}' id ='{$field}' value='{$value}' type='text' size='{$count}' maxlength='200'  autocomplete='off' />";
 				break;
 				
-			case("file") : 	
-			
-				$lnk = (strlen($value)>3) ? "<br/><a href='" . TEMARIOBASE . $value . "' target='_blank'>Archivo actual: " . $value . "</a>" : "";
-				
-				$return = "<input name='{$field}' id ='{$field}' type='file' size='{$count}' />" . $lnk;
-				break;
+			case("date") :
+					$return = "<input name='{$field}' id ='{$field}' value='{$value}' type='date' autocomplete='off' />";
+					break;
 				
 			case("numbertext") :
 				$return = "<input name='{$field}' id ='{$field}' value='" . number_format( (float)$value ,2,".","") . "' type='text' size='{$count}' maxlength='10' />";
