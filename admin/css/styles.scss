@@ -1,0 +1,427 @@
+/* Site Colours ------------------------------------------------------------------------------------------------------ */
+
+$backgroundColor:#5A9F97;
+$mainText:#222222;
+$lightText:#333;
+$greyText:#CCC;
+$headText:#5A9F97;
+
+
+/* ************************************************************************    #####    HTML RESET */
+* {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	background:transparent;
+	text-decoration: none;
+}
+
+
+/* ************************************************************************    #####    HTML TAGS */
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	color: $mainText;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+:focus {
+	 -moz-outline-style: none;
+}
+
+ol, ul {
+	list-style:square;
+	margin: 20px;
+}
+h1, h2, h3, h4, h5, p, ul, li {
+	padding: 0.5em;
+	margin: 0.1em 0 0.1em 0;
+	font-weight: lighter;
+	color:$mainText;
+	clear: both;
+	float: none;
+	text-align: center;
+}
+h1,h2,h3 {
+	color:$headText;
+	font-size:200%;
+}
+h2 {
+	font-size:170%;
+}
+h3 {
+	font-size:130%;
+}
+
+a {
+   color:#000;
+   text-decoration: none;
+}
+
+input[type=text],input[type=password], select, textarea {
+	-webkit-appearance:none;
+	color: #2F4345;
+	background: #FFF;
+	margin: 5px;
+	padding: 8px;
+	border: 1px solid #069;
+}
+
+input[type=checkbox] {
+	padding:2px;
+}
+
+input[type=submit] {
+	background-color: $lightText;
+	border:2px solid $backgroundColor;
+	border-radius: 8px;
+	color:#FFF;
+	font-size:1.2rem;
+	font-weight:700;
+	text-transform: uppercase;
+	padding:10px 15px;
+	margin:15px;
+}
+
+#mainContainer {
+	max-width:1200px;
+	width:85%;
+	margin:10px auto 40px auto;
+	padding-bottom: 30px;
+}
+
+/* TOP ICON  ------------------------------------------------------------------------------------------------------ */
+
+.headerIcon {
+	width:80%;
+	margin:0 auto;
+	text-align: right;
+	
+	img {
+		height:60px;
+		padding:40px 0 10px 0;
+	}
+}
+
+
+
+/* TOP MENU  ------------------------------------------------------------------------------------------------------ */
+
+#navmenu {
+	
+	text-align:center;
+	margin:10px auto;
+	width:90%;
+	max-width:1450px;
+	background-color: $mainText;
+	overflow: auto;
+	ul {
+		
+		margin: 0px;
+		padding: 0px;
+	
+		li {
+			float: left;
+			clear:none;
+			margin: 0;
+			padding: 0;
+			display:inline-block;
+		
+			a {
+				font-size:14px;
+				text-transform: uppercase;
+				margin: 2px 5px;
+				padding: 12px 10px 10px 10px;
+				color: #FFF;
+				display: block;
+				
+			&:hover {
+				background: $backgroundColor;
+				}
+			}
+		}
+	}
+}
+
+
+/* BASIC LIST TABLES */
+.compactTable {
+  
+   width:90%;
+	margin: 0 auto;
+	font-size: 0.75rem;
+	
+	tr {
+   	
+		th {
+   		background: #222;
+			color:#FFF;
+			padding:4px 5px;
+			font-weight: 700;
+			text-align: right;
+			&:nth-child(1) {
+   			text-align: left;
+			}
+		}
+		
+		td {
+			padding:2px 5px;
+			text-align: right;
+			border-bottom: 1px solid #999;
+			&:nth-child(1) {
+   			text-align: left;
+			}
+      }
+   }
+   
+}
+
+
+
+
+.listTable { 
+	
+	width:100%;
+	margin: 0 auto;
+	
+	tr {
+   	
+		th {
+			color:#FFF;
+			background: $backgroundColor;
+			padding:15px 5px;
+			font-weight: 700;
+			text-align: left;
+		}
+		
+		td {
+			background: #FFFFFF;
+			padding:10px 5px;
+			text-align: left;
+			
+			&.warn {
+   			background:rgba(255, 169, 169,0.6);
+   			color:#000;
+			}
+			
+		}
+
+		&:nth-child(2n) td {
+			background: $greyText;
+			
+			&.warn {
+   			background:rgba(255, 169, 169,0.6);
+   			color:#000;
+			}
+			
+		}
+		
+		&.subtotal td {
+   		font-weight: 600;
+   		background: #d7f8fd;
+   		color:#666;
+   		font-size:0.8rem;
+		}
+		
+		&:hover {
+			color:#000;
+		}
+		
+		
+		td.Q1, &:nth-child(2n) td.Q1 {
+   		background:#a6d2f6;
+      }
+		
+		td.Q2, &:nth-child(2n) td.Q2 {
+   		background:#a4f5b4;
+
+      }
+      
+		td.Q3, &:nth-child(2n) td.Q3 {
+   		background:#f5f2a4;
+
+      }
+      
+		td.Q4, &:nth-child(2n) td.Q4 {
+   		background:#f5a4db;
+
+      }
+		
+		
+
+	}
+	
+}
+
+
+
+
+.summaryTable { 
+	
+	width:90%;
+	margin: 10px auto;
+	font-weight:700;
+	font-size:1.1rem;
+	border-collapse: collapse;
+	padding:5px;
+	border:1px solid #000;
+	
+	tr {
+		
+		th {
+			color:#FFF;
+			background: $backgroundColor;
+			padding:15px 5px;
+			font-weight: 700;
+			text-align: right;
+			&:nth-child(1) {
+   			text-align: left;
+			}
+		}
+		
+		td {
+			background: #FFFFFF;
+			padding:10px 5px;
+			text-align: left;
+			
+		
+		}
+
+
+	}
+	
+}
+
+
+
+
+.formTable { 
+	
+	width:80%;
+	margin: 0 auto 30px auto;
+	padding-bottom: 30px;
+	
+	tr {
+		th {
+			color:#FFF;
+			background: $backgroundColor;
+			padding:15px 5px;
+			font-weight: 700;
+			text-align: left;
+			border-bottom:2px solid #FFF;
+		}
+		
+		td {
+			
+			background: #FFFFFF;
+			padding:10px 5px;
+			text-align: left;
+			
+			&.calculated {
+				text-align: center;
+				font-weight:700;
+				font-size:1.2rem;
+			}
+
+		}
+
+		&:nth-child(2n) td {
+			
+			background: $greyText;
+			
+			
+						
+		}
+		
+		&:hover {
+			color:#000;
+		}
+
+	}
+	
+}
+
+
+.img_list {
+	width:100%;
+	
+	img {
+		max-width:20%;
+	}
+	
+}
+
+
+.optionGrid {
+	display: flex;
+	width:100%;
+	align-items: stretch;
+	justify-content:         space-between;
+	flex-direction: row;
+	
+	div{
+		width:30%;
+		table {
+			width:100%;
+		}
+	}
+}
+
+.pvp_show {
+	border:2px solid #555;
+	text-align:right;
+	font-size:130%;
+	margin:20px;
+	padding:20px;
+	background:white;
+	box-sizing: border-box;
+}
+
+
+.errForm {
+	border:1px solid red;
+}
+
+.err {
+	background-color: red;
+	border-radius: 5px;
+	border:2px solid red;
+	color:#FFF;
+	text-decoration: none;
+	padding:3px 5px;
+	margin:5px 0;
+	display:inline-block;
+}
+
+	
+.btnLink {
+	background-color: $lightText;
+	border-radius: 20px;
+	border:2px solid $backgroundColor;
+	color:#FFF;
+	text-decoration: none;
+	padding:10px 15px;
+	margin:15px;
+	display:inline-block;
+}		
+		
+.btnLink a:hover {
+	background: #a6b53f;
+	color:#FFF;
+	font-weight:700;
+	teext-decoration:none;	
+}

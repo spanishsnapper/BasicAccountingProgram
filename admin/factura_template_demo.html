@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+
+        body,td,th {
+           font-family: Arial, Helvetica, sans-serif;
+           color: #000000;
+           font-size:12pt;
+           width:800px;
+           margin:0 auto;
+           padding: 0 10px;
+        }
+        body {
+         background-color: #FFFFFF;
+        }
+
+        div {
+           padding-bottom: 30px;
+        }
+        
+        .header{
+           margin:0;
+           padding-bottom: 0;
+        }
+        .header img {
+           width:100%;
+        }
+        
+        .address {
+         text-align:right;
+         padding:20px 0 10px 0;
+        }
+        
+        
+        .fac_title {
+           padding-bottom:20px;
+        }
+        
+        .fac_title h1 {
+           text-align: center;
+           font-weight: 700;
+           letter-spacing: 0.1em;
+           margin-bottom:0;
+           padding-bottom: 0;
+           font-size:1.2rem;
+        } 
+
+        .fac_title h2 {
+           text-align: center;
+           font-weight:400;
+           letter-spacing: 0.1em; 
+           margin-top:0;
+           padding-top: 0;
+            font-size:1.1rem;
+        } 
+        
+        .basic {
+           width:100%;
+           border-collapse: collapse;
+           border:1px solid #000;
+           padding-bottom: 20px;
+        }
+        .basic tr td, .basic tr th {
+           
+           padding:5px;
+           font-size:1rem;
+           text-align:left;
+        }
+        
+        .basic tr th {
+           color:#1d1d80;
+           background: #f3f3f3;
+           border-left:1px solid #000;
+           text-transform: uppercase;
+         }
+
+
+
+         .desglose {
+           width:100%;
+           border-collapse: collapse;
+           border:1px solid #000;
+           padding-bottom: 20px;
+        }
+        
+        .desglose tr td, .desglose tr th {
+           
+           padding:5px;
+           font-size:1rem;
+           text-align:right;
+        }
+        
+        .desglose tr th {
+           color:#1d1d80;
+           background: #bfecf3;
+           border:1px solid #000;
+           text-transform: uppercase;
+         }
+         
+         .desglose tr td:nth-child(1), .desglose tr th:nth-child(1) {
+            text-align: left;
+         }
+         
+         .desglose tr th.iva{
+            background: #fbe3e3;
+         }
+         .desglose tr th.retencion {
+            background: #dbfdca;
+         }
+         .desglose tr th.blank {
+            background: #fff;
+            border-color: #FFF;
+         }
+         
+         .detail {
+            width:100%;
+            border:2px solid #000;
+            height:135px;
+            padding:5px;
+            box-sizing: border-box;
+         }
+         
+         .detail > div {
+            width:49.5%;
+            margin:0;
+            box-sizing: border-box;
+            display: inline-block;
+         }
+         
+         .detail > div:nth-child(1) > div {
+            width:49%;
+            height:55px;
+            box-sizing: border-box;
+            display: inline-block;
+            background:#bfecf3;
+           
+            text-align:center;
+            padding:10px;
+            margin-bottom:0;
+            margin:0;
+         }
+         
+         .detail > div:nth-child(1) > div.abonar {
+            background:#000;
+            color:#FFF;
+            
+         }
+         
+         .detail > div:nth-child(1) > div:nth-child(3) {
+            background: #FFF;
+         }
+         
+         .detail > div:nth-child(2) {
+            position:relative;
+         }
+         
+         .detail > div:nth-child(2) > img  {
+           position: absolute;
+           right:20px;
+           top:-80px;
+           height:150px;
+         }
+
+         .footer{
+            margin:30px 0 10px 0;
+            padding: 20px 0 0 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top:1px solid #222;
+         }
+         
+         tr.showrow td{
+            color:#FFF;
+         }
+         tr.showret {
+            display: none;
+         }
+
+        </style>
+        
+        <title>{title}</title>
+        
+    </head>
+    <body>
+        <div class="header">
+            <img src="images/header.png">
+        </div>
+        <div class="address">
+            YOUR BUSINESS / AUTONOMO
+            <br>
+            DIRECCION
+            <br>
+            CIUDAD
+            <br>
+            PROVINCIA, COD POSTAL
+            <br>
+            <br>
+            <strong>NIE:A12312323</strong>
+        </div>
+        
+        <div class="fac_title">
+           <h1>FACTURA DEL CLIENTE</h1>
+           <h2>OTRO DATO IMPORTANTE?</h2>
+        </div>
+        
+        <div>
+           
+           <table class="basic">
+              <tr>
+                 <th style="width:20%">Fecha</th><td style="width:30%;text-align: center;">{emitida}</td>
+                 <th style="width:20%">Nº. Factura</th><td style="text-align: center;">{id}</td>
+              </tr>
+           </table>
+           
+        </div>
+        
+        
+        <div>
+           
+           <table class="basic">
+              <tr><th style="width:20%">Cliente</th><td>{datos_cliente}</td></tr>
+           </table>
+           
+        </div>
+        
+        
+         <div>
+           
+           <table class="desglose">
+              <tr>
+                  <th style="width:60%">Descripción</th>
+                  <th style="width:15%">Base €</th>
+                  <th style="width:10%">IVA %</th>
+                  <th style="width:15%">IVA €</th>
+              </tr>
+              
+               <tr class="{desc_show_1}">
+                  <td style="width:60%">{desc_1}</th>
+                  <td style="width:15%">{base_1}</th>
+                  <td style="width:10%">{iva_pct_1}</th>
+                  <td style="width:15%">{iva_1}</th>
+              </tr>
+              
+               <tr class="{desc_show_2}">
+                  <td style="width:60%">{desc_2}</th>
+                  <td style="width:15%">{base_2}</th>
+                  <td style="width:10%">{iva_pct_2}</th>
+                  <td style="width:15%">{iva_2}</th>
+              </tr>
+              
+               <tr class="{desc_show_3}">
+                  <td style="width:60%">{desc_3}</th>
+                  <td style="width:15%">{base_3}</th>
+                  <td style="width:10%">{iva_pct_3}</th>
+                  <td style="width:15%">{iva_3}</th>
+              </tr>
+              
+               <tr class="{desc_show_4}">
+                  <td style="width:60%">{desc_4}</th>
+                  <td style="width:15%">{base_4}</th>
+                  <td style="width:10%">{iva_pct_4}</th>
+                  <td style="width:15%">{iva_4}</th>
+              </tr>
+              
+              
+           </table>
+
+
+
+            <table class="desglose">
+            
+              <tr>
+                  <th style="width:60%">TOTAL BASE</th>
+                  <th style="width:15%">{base_tot}</th>
+                  <th style="width:10%" class="iva">{iva_pct}</th>
+                  <th style="width:15%" class="iva">{iva_tot}</th>
+              </tr>
+              
+              
+               <tr class="{ret_show}">
+                  <th class="retencion">RETENCIONES ({ret_pct})</th>
+                  <th class="retencion">{ret_tot}</th>
+                  <th class="blank"></th>
+                  <th class="blank"></th>
+              </tr>
+           
+            </table>
+        </div>
+
+
+
+      <div>
+         
+         <div class="detail">
+            
+            <div>
+               
+               <div>Fecha Factura<br><strong>{emitida}</strong></div>
+               <div> Nº Factura<br><strong>{id}</strong></div>
+               <div></div>
+               <div class="abonar">TOTAL A ABONAR<br><strong style="font-size:1.1rem">{grand_total}</strong></div>
+               
+            </div>
+            <div>
+               <img src="images/signature.png">
+            </div>
+         </div>  
+      </div>
+      
+      <div>
+        
+            <div class="fac_title">
+            <h2>FORMA DE PAGO</h2>
+        
+        </div>
+        
+        <div>
+           
+           <table class="basic">
+              <tr><td style="width:20%">Titular: TITULAR DE LA CUENTA<br>
+                  (SWIFT BANCO)<br>
+                 <strong>ESxx 123 123 123 123 123</strong>
+            </td></tr>
+           </table>
+           
+        </div>
+      </div>
+        
+    </body>
+</html>
