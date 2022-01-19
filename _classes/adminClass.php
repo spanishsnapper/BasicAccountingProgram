@@ -352,12 +352,17 @@ class adminClass extends FormWrite {
 	   			if ( strtotime($rw["cobrado"]) > strtotime("2019-01-01 00:00:00") ) {
 	      	   	$trimestreC = "Q" . ( ceil(substr($rw["cobrado"],5,2)/3) );
 	      	   	$cobrado = $rw["cobrado"];
+				$cobrado_show = "paid_row";
+
+
 	      	   } else {
+
 	   			   $trimestreC = "-";
 	   			   $cobrado = "-";
-					}
+				   $cobrado_show = "";
+				}
 	            
-					$table .= '<tr>
+					$table .= '<tr class="' . $cobrado_show . '">
 							<td style="text-align:left">' . $this->formatfacid($rw["id"]) . '</td>
 							<td style="text-align:left">' . $rw["nif"] . '</td>
 							<td style="text-align:left">

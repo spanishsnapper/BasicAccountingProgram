@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once("../_classes/config.php");
 require_once("../_classes/dbClass.php");
 
@@ -73,6 +73,21 @@ $DB->setQuery();
 // Logging Script:
 if ($QType == "INSERT") {
 	$ID = $DB->insert_id;
+
+
+	// Check if this is the first factura of a new year and update the ID to YYYY-001 if so: 
+	$DB->queryString = "SELECT id, YEAR(emitido) AS yr FROM facturas WHERE id=" . $ID;
+	$row = $DB->getAsocSglQuery();
+	
+	if ($row["yr"] != substr($row["id"],0,4)) {
+		$newyear_id = $row["yr"] . "001";
+		$DB->queryString = "UPDATE facturas SET id=" . $newyear_id . " WHERE id=" . $ID;
+		$DB->setQuery();
+
+		$ID = $newyear_id;
+	}
+
+
 } elseif ($QType == "UPDATE") {
 	$ID = $chkey;
 } elseif ($QType == "DELETE") {

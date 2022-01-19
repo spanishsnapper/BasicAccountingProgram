@@ -33,6 +33,18 @@ $DB->queryString = "UPDATE facturas
           
 $res = $DB->setQuery();
 
+// Check if this is the first factura of a new year and update the ID to YYYY-001 if so: 
+$DB->queryString = "SELECT id, YEAR(emitido) AS yr FROM facturas WHERE id=" . $id;
+$row = $DB->getAsocSglQuery();
+
+if ($row["yr"] != substr($row["id"],0,4)) {
+   $newyear_id = $row["yr"] . "001";
+   $DB->queryString = "UPDATE facturas SET id=" . $newyear_id . " WHERE id=" . $id;
+   $DB->setQuery();
+
+   $ID = $newyear_id;
+}
+
 
 header("location:gest_ingresos.php?rID=" . $id);
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require_once("../_classes/config.php");
 require_once("../_classes/dbClass.php");
@@ -44,7 +44,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 <script language="javascript">
 	
 	function getMenu($id) {
-		window.location.href = "<?php echo ($baseURL) . $admin->f; ?>&rID=" + $id;
+		window.open("<?php echo ($baseURL) . $admin->f; ?>&rID=" + $id, "_viewfac");
 	}
 	
 	function getFactura($id) {
@@ -54,8 +54,23 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 	function dupFactura($id) {
 		window.location.href = "duplicate_factura.php?rID=" + $id;
 	}
+
+   function togglePaid(){
+
+      let paidRows = document.querySelectorAll(".paid_row");
+      for (row of paidRows){
+         row.classList.toggle("hide_paid_row");
+      };
+
+   }
 	
 </script>
+
+<style>
+   .hide_paid_row{
+      display: none;
+   }
+   </style>
 </head>
 
 <body>
@@ -82,7 +97,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
                         <th style="width:20%">Id</th>
                         <td style="width:30%"><?php echo ($admin->rFormWrite("id","hidden",10) ) ?></td>
                         <th style="width:20%">Fecha Emisión</th>
-                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","text",10) ) ?></td>
+                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","date",10) ) ?></td>
                     </tr>
                     
                     <tr>
@@ -125,7 +140,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 	                     <th style="width:20%">Forma Pago</th>
                         <td style="width:30%"><?php echo ($admin->rFormWrite("formapago","select",1,$admin->formapago) ) ?></td>
                         <th style="width:20%">Fecha Cobrado</th>
-                        <td style="width:30%"><?php echo ($admin->rFormWrite("cobrado","text",10) ) ?></td>
+                        <td style="width:30%"><?php echo ($admin->rFormWrite("cobrado","date",10) ) ?></td>
 	                  </tr>
 	                  
 	                                      					
@@ -138,6 +153,31 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
           </table>
                 
       </form>
+
+      <script>
+      
+      document.getElementById('importe_4').addEventListener('change', updateValue);
+      document.getElementById('importe_3').addEventListener('change', updateValue);
+      document.getElementById('importe_2').addEventListener('change', updateValue);
+      document.getElementById('importe_1').addEventListener('change', updateValue);
+      
+
+      function updateValue() {
+         
+         var total = 0;
+         for (var i=1;i<=4;i++) {
+            if (document.getElementById('importe_' + i).value!="") {
+               total +=  parseFloat(document.getElementById('importe_' + i).value);
+            } else {
+               document.getElementById('importe_' + i).value = "0"
+            }
+         }
+        
+        document.getElementById('importe').value = total;
+      }
+      
+        
+    </script>
             
     <?php 
     } else { // if an agent has been selected to be modified
@@ -146,7 +186,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
   <h2>Lista de Facturas</h2>
      
         <p style="text-align:right"><a href="<?php echo $baseURL; ?>&rID=0" class='btnLink'>Nueva Factura</a></p>
-        <p><a href="gest_ingresos.php?f=cif">Order by client</a> | <a href="gest_ingresos.php?f=old">Show paid and old</a>
+        <p><a href="gest_ingresos.php?f=cif">Order by client</a> | <a href="gest_ingresos.php?f=old">Show paid and old</a> | <span onclick="togglePaid()">Show/Hide Paid</span>
         </p>		
         <table class="listTable" style="width:100%">
         	<tr>
@@ -177,30 +217,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
     ?>
       
         
-   <script>
-      
-      document.getElementById('importe_4').addEventListener('change', updateValue);
-      document.getElementById('importe_3').addEventListener('change', updateValue);
-      document.getElementById('importe_2').addEventListener('change', updateValue);
-      document.getElementById('importe_1').addEventListener('change', updateValue);
-      
-
-      function updateValue() {
-         
-         var total = 0;
-         for (var i=1;i<=4;i++) {
-            if (document.getElementById('importe_' + i).value!="") {
-               total +=  parseFloat(document.getElementById('importe_' + i).value);
-            } else {
-               document.getElementById('importe_' + i).value = "0"
-            }
-         }
-        
-        document.getElementById('importe').value = total;
-      }
-      
-        
-    </script>
+  
 
 
 
