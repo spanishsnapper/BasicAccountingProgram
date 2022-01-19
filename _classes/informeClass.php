@@ -828,18 +828,20 @@ class informeClass extends FormWrite {
    	$cifList = array();
 		
 		$this->queryString = "SELECT cif, SUM(importe) AS imptot
-													FROM gastos g
-													WHERE emitido BETWEEN '" . PREFIX_YEAR . "-01-01' AND '" . PREFIX_YEAR . "-12-31'
-													AND FORM_347 > 0
-													GROUP BY g.cif
-													ORDER BY imptot DESC
-													LIMIT 15";
+								FROM gastos g
+								WHERE emitido BETWEEN '" . PREFIX_YEAR . "-01-01' AND '" . PREFIX_YEAR . "-12-31'
+								AND FORM_347 > 0
+								GROUP BY g.cif
+								ORDER BY imptot DESC
+								LIMIT 15";
 		
 		$res = $this->getQuery();
 		
-		while ($rw = $res->fetch_assoc() ) {
-			if ($rw["imptot"]>3000/(1+IVA)) {
-				$cifList[] = $rw["cif"];
+		if ($this->afRows >0){
+			while ($rw = $res->fetch_assoc() ) {
+				if ($rw["imptot"]>3000/(1+IVA)) {
+					$cifList[] = $rw["cif"];
+				}
 			}
 		}
 		
