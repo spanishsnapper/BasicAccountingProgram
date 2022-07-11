@@ -97,7 +97,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
                         <th style="width:20%">Id</th>
                         <td style="width:30%"><?php echo ($admin->rFormWrite("id","hidden",10) ) ?></td>
                         <th style="width:20%">Fecha Emisión</th>
-                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","date",10) ) ?></td>
+                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","text",10) ) ?></td>
                     </tr>
                     
                     <tr>
@@ -140,7 +140,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 	                     <th style="width:20%">Forma Pago</th>
                         <td style="width:30%"><?php echo ($admin->rFormWrite("formapago","select",1,$admin->formapago) ) ?></td>
                         <th style="width:20%">Fecha Cobrado</th>
-                        <td style="width:30%"><?php echo ($admin->rFormWrite("cobrado","date",10) ) ?></td>
+                        <td style="width:30%"><?php echo ($admin->rFormWrite("cobrado","text",10) ) ?></td>
 	                  </tr>
 	                  
 	                                      					
@@ -156,6 +156,7 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 
       <script>
       
+      document.getElementById('emitido').value="<?php echo date("Y-m-d", time() ) ?>";
       document.getElementById('importe_4').addEventListener('change', updateValue);
       document.getElementById('importe_3').addEventListener('change', updateValue);
       document.getElementById('importe_2').addEventListener('change', updateValue);

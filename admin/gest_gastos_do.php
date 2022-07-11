@@ -70,7 +70,7 @@ if ($QType == "INSERT") {
 	$ID = $chkey;
 }
 
-$DB->DBOff();
+// $DB->DBOff();
 
 header("location:gest_gastos.php");
 

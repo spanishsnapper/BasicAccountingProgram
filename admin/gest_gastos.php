@@ -73,8 +73,8 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
                         <td style="width:30%"><?php echo ($admin->rFormWrite("id_externo","text",25) ) ?>
                                               <?php echo ($admin->rFormWrite("id","hidden",10) ) ?></td>
                         <th style="width:20%">Fecha Emisión<br><br>Fecha Contabilizado</th>
-                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","date",10) ) ?><br>
-                                                    <?php echo ($admin->rFormWrite("contable","date",10) ) ?></td>
+                        <td style="width:30%"><?php echo ($admin->rFormWrite("emitido","text",10) ) ?><br>
+                                                    <?php echo ($admin->rFormWrite("contable","text",10) ) ?></td>
                     </tr>
                     
                     <tr>
