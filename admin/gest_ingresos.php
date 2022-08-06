@@ -155,8 +155,9 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
       </form>
 
       <script>
-      
+      <?php if ($action=="Insertar"){ ?>
       document.getElementById('emitido').value="<?php echo date("Y-m-d", time() ) ?>";
+      <?php } ?>
       document.getElementById('importe_4').addEventListener('change', updateValue);
       document.getElementById('importe_3').addEventListener('change', updateValue);
       document.getElementById('importe_2').addEventListener('change', updateValue);
