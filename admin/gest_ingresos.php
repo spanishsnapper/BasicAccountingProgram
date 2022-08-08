@@ -48,11 +48,13 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
 	}
 	
 	function getFactura($id) {
-		window.location.href = "print_factura.php?rID=" + $id;
+		window.open("print_factura.php?rID=" + $id, "_blank");
 	}
 	
 	function dupFactura($id) {
-		window.location.href = "duplicate_factura.php?rID=" + $id;
+      if (confirm("duplicate factura?")){
+		   window.location.href = "duplicate_factura.php?rID=" + $id;
+      }
 	}
 
    function togglePaid(){
