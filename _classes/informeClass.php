@@ -618,7 +618,7 @@ class informeClass extends FormWrite {
 		$currentCIF 			= "";
 		
    	$qstart              = array("","-01-01","-04-01","-07-01","-10-01");
-   	$qend                = array("","-03-31","-06-30","-09-31","-12-31");
+   	$qend                = array("","-03-31","-06-30","-09-30","-12-31");
    	
    	$screen              = "";
    	$output 					= "";
@@ -703,7 +703,7 @@ class informeClass extends FormWrite {
 	public function drawInforme347() {
    	
    	$qstart              = array("","-01-01","-04-01","-07-01","-10-01");
-   	$qend                = array("","-03-31","-06-30","-09-31","-12-31");
+   	$qend                = array("","-03-31","-06-30","-09-30","-12-31");
    	
    	$screen              = "";
    	
@@ -818,7 +818,7 @@ class informeClass extends FormWrite {
 	public function drawInforme347_in() {
    	
    	$qstart              = array("","-01-01","-04-01","-07-01","-10-01");
-   	$qend                = array("","-03-31","-06-30","-09-31","-12-31");
+   	$qend                = array("","-03-31","-06-30","-09-30","-12-31");
    	
    	$screen              = "";
    	
@@ -938,7 +938,7 @@ class informeClass extends FormWrite {
    	$iva_gastos_bypaid       = array("Q1"=>0, "Q2"=>0, "Q3"=>0, "Q4"=>0);
    	
    	$qstart              = array("","-01-01","-04-01","-07-01","-10-01");
-   	$qend                = array("","-03-31","-06-30","-09-31","-12-31");
+   	$qend                = array("","-03-31","-06-30","-09-30","-12-31");
    	
    	$screen              = "";
    	
@@ -1030,7 +1030,7 @@ class informeClass extends FormWrite {
    	$iva_gastos_bypaid       = array("Q1"=>0, "Q2"=>0, "Q3"=>0, "Q4"=>0);
    	
    	$qstart              = array("","-01-01","-04-01","-07-01","-10-01");
-   	$qend                = array("","-03-31","-06-30","-09-31","-12-31");
+   	$qend                = array("","-03-31","-06-30","-09-30","-12-31");
    	
    	$screen              = "";
    	
