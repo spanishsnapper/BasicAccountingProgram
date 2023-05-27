@@ -192,7 +192,18 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
         <p style="text-align:right"><a href="<?php echo $baseURL; ?>&rID=0" class='btnLink'>Nueva Factura</a></p>
         <p><a href="gest_ingresos.php?f=cif">Order by client</a> | <a href="gest_ingresos.php?f=old">Show paid and old</a> | <span onclick="togglePaid()">Show/Hide Paid</span>
         </p>		
-        <table class="listTable" style="width:100%">
+
+        <table class="formTable">
+            <tr>
+                <th>Buscar Cliente:</th>
+                <td>
+                    <input type="text" id="filterInput" onkeyup="myFunction()" placeholder="Filtrar">
+                </td>
+            </tr>
+        </table>
+
+
+        <table class="listTable" style="width:100%" id="tab_facs">
         	<tr>
       	    <th style="width:8%">Id</th>
       	    <th style="width:8%">NIF</th>
@@ -214,6 +225,34 @@ if ( isset($_REQUEST["rID"]) && $_REQUEST["rID"]>0) {
       	</tr>
                     <?php echo $res; ?>
         </table>
+
+
+<!-- script to filter clientes in table -->
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filterInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tab_facs");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
+
+
                
           
   <?php  

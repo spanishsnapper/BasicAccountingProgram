@@ -645,6 +645,8 @@ class informeClass extends FormWrite {
       while ( $rw = $res->fetch_assoc() ) {
 	      
 	      if ($rw["nif"]!=$currentCIF && $currentCIF!="") {
+
+				
 	      
 	      	// Total output row:
 	      	$output .= "<tr><th>Total Cliente</th><th colspan=3></th>
@@ -661,7 +663,9 @@ class informeClass extends FormWrite {
 			}
 			
          
-         $cobrado = ($rw["cobrado"] == "1975-02-26") ? "-" : $rw["cobrado"];
+         $cobrado = $rw["cobrado"];
+			if ( strtotime($rw["cobrado"]) < strtotime($rw["emitido"])) $cobrado = "NOT FISCAL YR";
+			
          
          $output .= "<tr>
                         <td>" . $rw["cliente"] . "</td>
